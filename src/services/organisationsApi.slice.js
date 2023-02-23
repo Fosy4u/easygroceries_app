@@ -63,7 +63,7 @@ export default createApi({
       query: ({ payload }) => ({
         url: `/api/Customer/${payload.id}/royaltyMembership/subscribe`,
         method: "PUT",
-        body: payload.id,
+        body: payload,
       }),
       invalidatesTags: (result, error) =>
         error ? [] : ["Products", "Customers", "Orders"],

@@ -1,9 +1,9 @@
-import {  Card, CardContent, CardHeader } from "@mui/material";
+import { Card,  CardHeader } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { globalSelectors } from "../../../global/global.slice";
 import Banner from "../../../utils/components/Banner";
-import { Paragraph } from "../../../utils/components/Typography";
+import { Paragraph, Span } from "../../../utils/components/Typography";
 
 import ReceiptActions from "../components/ReceiptActions";
 import ShippingActions from "../components/ShippingActions";
@@ -29,16 +29,16 @@ const SuccessfulOrder = () => {
         </div>
       )}
       {currentReceipt?.id && currentShipment?.id && (
-        <div className="d-flex h-100 justify-content-center align-items-center">
+        <div className="d-flex h-100 justify-content-center align-items-center w-100">
           <Card>
             <CardHeader
-              title="Congratulations! Your order has been placed successfully"
+              title="Congratulations! Your order has been placed."
               subheader="You will receive an email confirmation shortly."
             />
-            <CardContent className="d-flex">
+            <Span className="d-flex m-2 p-2">
               <ReceiptActions print />
               <ShippingActions print />
-            </CardContent>
+            </Span>
           </Card>
         </div>
       )}

@@ -49,7 +49,7 @@ const Payment = () => {
         <div
           className={
             mediumScreen
-              ? "d-flex justify-content-between p-5 align-items-center h-100 bg-light"
+              ? "d-flex justify-content-between p-5 align-items-center h-100 bg-light "
               : "d-flex flex-column justify-content-center align-items-center h-75"
           }
         >

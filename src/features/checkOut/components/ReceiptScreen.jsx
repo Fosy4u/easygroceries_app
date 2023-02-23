@@ -19,7 +19,7 @@ import formatDate from "../../../utils/helper/formatDate";
 const ReceiptScreen = forwardRef((props, ref) => {
   const { receipt } = props;
   const matches = useMediaQuery("(min-width:600px)");
-  const customer = receipt?.customer;
+  const shipment = useSelector(globalSelectors.selectPlacedOrder)?.shipment;
   const organisation = useSelector(globalSelectors.selectOrganisation);
   const cart = useSelector(globalSelectors.selectPlacedOrder)?.order?.cart;
   const currency = receipt?.paymentCurrency?.currency || "£";
@@ -65,20 +65,20 @@ const ReceiptScreen = forwardRef((props, ref) => {
               <Divider />
 
               <h2 className="fs-6">Receipt To :</h2>
-              {customer && (
+              {shipment && (
                 <span className="d-flex flex-column">
                   <h2 className="fs-6">
-                    {customer?.salutation && customer?.salutation}
-                    {customer?.firstName} {customer?.lastName}
+                    {shipment?.salutation && shipment?.salutation}
+                    {shipment?.firstName} {shipment?.lastName}
                   </h2>
                   <p style={{ fontSize: !matches && "10px" }}>
-                    {customer?.address} {customer?.city}
+                    {shipment?.address} {shipment?.city}
                   </p>
                   <p style={{ fontSize: !matches && "10px" }}>
-                    {customer?.email}
+                    {shipment?.email}
                   </p>
                   <p style={{ fontSize: !matches && "10px" }}>
-                    {customer?.phoneNo}
+                    {shipment?.phoneNo}
                   </p>
                 </span>
               )}
@@ -122,8 +122,8 @@ const ReceiptScreen = forwardRef((props, ref) => {
                   <QRCode
                     className="mt-2"
                     value={`${organisation?.name} ${
-                      receipt?.receiptNo + "-" + customer?.firstName
-                    } ${customer?.lastName + "-total-" + receipt.total}`}
+                      receipt?.receiptNo + "-" + shipment?.firstName
+                    } ${shipment?.lastName + "-total-" + receipt.total}`}
                     size={60}
                   />
                 </span>

@@ -40,6 +40,10 @@ const Login = () => {
   const signIn = () => {
     setLoading(true);
     if (customer) {
+      localStorage.removeItem("placedOrder");
+      localStorage.removeItem("cart");
+      localStorage.removeItem("order");
+      localStorage.setItem("userId", customer.id);
       dispatch(globalActions.setCurrentUser(customer));
       setLoading(false);
       const currentUrl = localStorage.getItem("currentUrl");

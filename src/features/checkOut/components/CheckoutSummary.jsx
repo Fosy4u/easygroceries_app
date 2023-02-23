@@ -29,12 +29,12 @@ const CheckoutSummary = ({ products, total }) => {
   const isRoyaltyMembership = currentUser?.isRoyaltyMembership;
   const { cartTotal, originalProductTotal } = total;
 
-    // get the product in the cart
+  // get the product  the cart
   const getProduct = (id) => {
     return products?.find((product) => product?.id === id);
   };
 
-// calculate the total price of the product on cart
+  // calculate the total price of the product on cart
   const getPrice = (id, quantity) => {
     const product = products?.find((product) => product?.id === id);
 
@@ -99,11 +99,11 @@ const CheckoutSummary = ({ products, total }) => {
       <ListItem alignItems="flex-start">
         <ListItemText>
           <Span className="fw-bold">Total</Span>{" "}
-          <Span className="fw-bold">£{cartTotal}</Span>
+          <Span className="fw-bold">£{cartTotal.toFixed(2)}</Span>
         </ListItemText>
         {isRoyaltyMembership && (
           <ListItemText>
-            <Span className="fw-bold">Original Total</Span>{" "}
+            <Span className="fw-bold">Total</Span>{" "}
             <Span className="fw-bold text-decoration-line-through">
               £{originalProductTotal}
             </Span>

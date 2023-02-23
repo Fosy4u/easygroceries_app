@@ -191,7 +191,7 @@ const NavTopbar = () => {
             <StyledItem>
               <RoyaltyMembership
                 memberText="RoyalTy Member"
-                nonMemberText="Become a RoyalTy Member"
+                nonMemberText="Become a RoyalTy Member for £5"
               />
             </StyledItem>
           </NavMenu>

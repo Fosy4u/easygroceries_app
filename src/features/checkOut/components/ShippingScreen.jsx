@@ -15,15 +15,13 @@ import { globalSelectors } from "../../../global/global.slice";
 import Logo from "../../../images/brand1.png";
 import formatDate from "../../../utils/helper/formatDate";
 
-
-
 const ShippingScreen = forwardRef((props, ref) => {
   const { shipment } = props;
 
   const matches = useMediaQuery("(min-width:600px)");
 
   const receipt = useSelector(globalSelectors.selectPlacedOrder)?.receipt;
-  const customer = receipt?.customer;
+
   const organisation = useSelector(globalSelectors.selectOrganisation);
   const cart = useSelector(globalSelectors.selectPlacedOrder)?.order?.cart;
   const currency = shipment?.paymentCurrency?.currency || "£";
@@ -69,20 +67,20 @@ const ShippingScreen = forwardRef((props, ref) => {
               <Divider />
 
               <h2 className="fs-6">shipment To :</h2>
-              {customer && (
+              {shipment && (
                 <span className="d-flex flex-column">
                   <h2 className="fs-6">
-                    {customer?.salutation && customer?.salutation}
-                    {customer?.firstName} {customer?.lastName}
+                    {shipment?.salutation && shipment?.salutation}
+                    {shipment?.firstName} {shipment?.lastName}
                   </h2>
                   <p style={{ fontSize: !matches && "10px" }}>
-                    {customer?.address} {customer?.city}
+                    {shipment?.address} {shipment?.city}
                   </p>
                   <p style={{ fontSize: !matches && "10px" }}>
-                    {customer?.email}
+                    {shipment?.email}
                   </p>
                   <p style={{ fontSize: !matches && "10px" }}>
-                    {customer?.phoneNo}
+                    {shipment?.phoneNo}
                   </p>
                 </span>
               )}

@@ -30,6 +30,7 @@ const ShippingActions = ({ print, }) => {
   const placedOrder = useSelector(globalSelectors.selectPlacedOrder);
   const shipment = placedOrder?.shipment;
 
+  // print shipment
   const handlePrint = useReactToPrint({
     onBeforeGetContent: () => {},
     content: () => shippingRef.current,
@@ -55,9 +56,6 @@ const ShippingActions = ({ print, }) => {
       <div>
         <Dialog
           open={showModal}
-          //   onClose={() => {
-          //     setShowModal(false);
-          //   }}
           TransitionComponent={Transition}
           keepMounted
           fullWidth={true}

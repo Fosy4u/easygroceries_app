@@ -1,30 +1,20 @@
 import React, { StrictMode } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./style/global.css";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import AllRoutes from "./routing/AllRoutes";
 import routes from "./routing/routes";
 import AuthProvider from "./context/AuthProvider";
 import { SettingsProvider } from "./context/SettingsContext";
 import ToastContainer from "./features/toast/ToastContainer";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#F15A29",
-    },
-    secondary: {
-      main: "#4D148c",
-    },
-  },
-});
+import { mainTheme } from "./Theme/MainTheme";
 
 function App() {
   return (
     <StrictMode>
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={mainTheme}>
           <CssBaseline />
           <SettingsProvider>
             <AuthProvider>
@@ -32,7 +22,6 @@ function App() {
               <ToastContainer />
             </AuthProvider>
           </SettingsProvider>
-        
         </ThemeProvider>
       </BrowserRouter>
     </StrictMode>

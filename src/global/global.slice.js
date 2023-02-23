@@ -1,6 +1,4 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-
-
 export const GLOBAL_FEATURE_KEY = "global";
 
 const initialState = {

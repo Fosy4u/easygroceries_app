@@ -29,6 +29,8 @@ const AuthProvider = ({ children }) => {
   );
   const customer = getCustomerQuery?.data;
 
+
+//managing sync of local storage and redux store
   const manageAuth = useCallback(() => {
     if (!currentUser?.id) {
       if (customer?.id) {

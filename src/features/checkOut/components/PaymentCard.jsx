@@ -29,6 +29,7 @@ const PaymentCard = ({ total }) => {
     organisationsApi.useMakePaymentMutation();
   const orderId = useSelector(globalSelectors.selectOrder).id;
 
+  // default some values to the current user profile details to save time
   const handlePayment = () => {
     const payload = {
       paymentMethod,
@@ -46,10 +47,7 @@ const PaymentCard = ({ total }) => {
     };
     makePayment({ payload })
       .then((data) => {
-        console.log("data", data);
-        console.log("data.data", data.data);
-        console.log("data.data.order", data.data.order);
-        console.log("data.data.receipt", data.data.receipt);
+      
         dispatch(globalActions.setOrder({}));
         dispatch(globalActions.setCart([]));
         dispatch(globalActions.setPlacedOrder(data.data));

@@ -58,7 +58,6 @@ const BulletIcon = styled("div")(({ theme }) => ({
   marginLeft: "20px",
   marginRight: "8px",
   borderRadius: "300px !important",
-  // background: theme.palette.primary.contrastText,
   background: theme.palette.text.primary,
 }));
 
@@ -102,7 +101,7 @@ const VerticalNavExpansionPanel = ({ item, children, mode }) => {
 
   useEffect(() => {
     if (!elementRef) return;
-
+// calculate height of children to help with responsiveness
     calcaulateHeight(elementRef.current);
 
     // OPEN DROPDOWN IF CHILD IS ACTIVE

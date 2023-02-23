@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Chip, Select, Stack } from "@mui/material";
+import { Select } from "@mui/material";
 import { H4, Span } from "../../../utils/components/Typography";
 
 const ProductQuantity = ({ stock, quantity, selectQuantity }) => {
@@ -17,11 +16,12 @@ const ProductQuantity = ({ stock, quantity, selectQuantity }) => {
           id: "quantity",
         }}
       >
-        {Array.from(Array(stock).keys()).map((item, index) => (
-          <option key={index} value={item + 1}>
-            {item + 1}
-          </option>
-        ))}
+        {stock > 0 &&
+          Array.from(Array(stock).keys()).map((item, index) => (
+            <option key={index} value={item + 1}>
+              {item + 1}
+            </option>
+          ))}
       </Select>
     </div>
   );

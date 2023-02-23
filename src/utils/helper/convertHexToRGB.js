@@ -1,5 +1,5 @@
 
-
+// convert hex to rgb helper function
 export const convertHexToRGB = (hex) => {
   // check if it's a rgba
   if (hex.match('rgba')) {

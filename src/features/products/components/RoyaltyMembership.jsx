@@ -14,10 +14,15 @@ const RoyaltyMembership = ({ nonMemberText, memberText }) => {
 
   const customerId = currentUser?.id;
   const cart = useSelector(globalSelectors.selectCart);
-
+  const [subscribe, suscribeStatus] =
+  organisationsApi.useSubscribeRoyaltyMutation();
   const [updateOrder, updateOrderStatus] =
     organisationsApi.useUpdateOrderMutation();
 
+
+// update cart after subscribing to royalty membership.
+// This is done to update the price of the items in the cart as well as the order total.
+// And allow backend to calculate the discount for the order.
   const updateCart = () => {
     const payload = {
       customerId,
@@ -39,9 +44,8 @@ const RoyaltyMembership = ({ nonMemberText, memberText }) => {
     }
   };
 
-  const [subscribe, suscribeStatus] =
-    organisationsApi.useSubscribeRoyaltyMutation();
-
+ 
+// subscribe to royalty membership
   const handleSubscribe = () => {
     const payload = {
       id: currentUser?.id,
@@ -58,7 +62,9 @@ const RoyaltyMembership = ({ nonMemberText, memberText }) => {
   };
   return (
     <>
-      <Loader showLoading={suscribeStatus.isLoading} />
+      <Loader
+        showLoading={suscribeStatus.isLoading || updateOrderStatus?.isLoading}
+      />
       <div className="mt-4">
         {!isRoyaltyMembership && (
           <Button onClick={handleSubscribe} color="success">

@@ -106,6 +106,10 @@ const NavTopbar = () => {
     updateSidebarMode({ mode });
   };
 
+  // handle logout actions
+  // clear local storage
+  // clear redux store
+  // Would be to store these data on database on logout
   const handleLogout = () => {
     localStorage.removeItem("userId");
     dispatch(globalActions.setCurrentUser({}));

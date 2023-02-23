@@ -7,19 +7,7 @@ body {
 .primaryBrandColor {
   color: #F15A29;
 }
-.secondaryBrandColor {
-  color: #4D148c;
-}
 
-.bg-primaryBrandColor {
-  background-color: #F15A29;
-}
-.bg-secondaryBrandColor {
-  background-color: #4D148c;
-}
-.bg-shade {
-  background-color: rgba(0, 5, 145, 0.09)
-}
 
 
 /* loader */

@@ -1,8 +1,8 @@
-import CategoryIcon from "@mui/icons-material/Category";
-import BrandingWatermarkIcon from "@mui/icons-material/BrandingWatermark";
+
 import InventoryIcon from "@mui/icons-material/Inventory";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
+// for the navigation side bar
 export const navigations = [
   { label: "EasyGroceries E-Commerce Shop", type: "label" },
 

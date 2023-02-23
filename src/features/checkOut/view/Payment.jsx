@@ -14,23 +14,32 @@ const Payment = () => {
   const isRoyaltyMembership = currentUser?.isRoyaltyMembership;
   const getProductsQuery = organisationsApi.useGetProductsQuery();
   const products = getProductsQuery?.data;
-  
+
+  //calculate total both original and discounted price
 
   const calcTotal = () => {
     const cartTotal = cart?.reduce((acc, item) => {
-        const product = products?.find((product) => product.id === item.productId);
-        
+      const product = products?.find(
+        (product) => product.id === item.productId
+      );
+
       if (isRoyaltyMembership) {
-        return acc + (Number( product?.price) - (20 / 100) * Number( product?.price) ) * Number(item.quantity);
+        return (
+          acc +
+          (Number(product?.price) - (20 / 100) * Number(product?.price)) *
+            Number(item.quantity)
+        );
       }
-      return acc + Number( product?.price) * Number(item.quantity);
+      return acc + Number(product?.price) * Number(item.quantity);
     }, 0);
 
     const originalProductTotal = cart?.reduce((acc, item) => {
-        const product = products?.find((product) => product.id === item.productId);
-      return acc + Number( product?.price) * Number(item.quantity);
+      const product = products?.find(
+        (product) => product.id === item.productId
+      );
+      return acc + Number(product?.price) * Number(item.quantity);
     }, 0);
-console.log(cartTotal, originalProductTotal)
+
     return { cartTotal, originalProductTotal };
   };
 

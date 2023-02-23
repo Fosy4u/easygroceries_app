@@ -13,36 +13,15 @@ import { useSelector } from "react-redux";
 import { globalSelectors } from "../../../global/global.slice";
 
 import Logo from "../../../images/brand1.png";
+import formatDate from "../../../utils/helper/formatDate";
 
-const adjustDate = (data) => {
-  if (data < 10) {
-    return `0${data}`;
-  }
-  return data;
-};
-
-const formatDate = (date) => {
-  const parsedDate = new Date(date);
-  const month = new Intl.DateTimeFormat("en-US", {
-    month: "long",
-  }).format(parsedDate);
-  const parsedDateValue = adjustDate(parsedDate.getFullYear());
-  const parsedDateDay = adjustDate(parsedDate.getDate());
-
-  return `${parsedDateDay} ${month} ${parsedDateValue}`;
-};
 
 const ReceiptScreen = forwardRef((props, ref) => {
   const { receipt } = props;
-  console.log(
-    "🚀 ~ file: ReceiptScreen.jsx:43 ~ ReceiptScreen ~ receipt",
-    receipt
-  );
   const matches = useMediaQuery("(min-width:600px)");
   const customer = receipt?.customer;
   const organisation = useSelector(globalSelectors.selectOrganisation);
   const cart = useSelector(globalSelectors.selectPlacedOrder)?.order?.cart;
-  console.log("🚀 ~ file: ReceiptScreen.jsx:43 ~ ReceiptScreen ~ cart:", cart);
   const currency = receipt?.paymentCurrency?.currency || "£";
 
   return (

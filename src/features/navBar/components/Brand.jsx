@@ -1,5 +1,4 @@
 import { Box, styled } from "@mui/material";
-
 import useSettings from "../../../hooks/useSettings";
 import { Span } from "../../../utils/components/Typography";
 import EasyGroceriesLogo from "./EasyGroceriesLogo";

@@ -23,6 +23,8 @@ const JWTRoot = styled(JustifyBox)(() => ({
   },
 }));
 
+// layout for sign in pages
+
 const AuthLayout = ({children}) => {
 
   return (

@@ -91,6 +91,10 @@ const Login = () => {
               Login
             </LoadingButton>
 
+{/* had this reserved for allowing one add more users but couldnt implement due to time constraints
+and it wasnt part of the requirements */}
+
+
             <Paragraph>
               Register ?
               <NavLink

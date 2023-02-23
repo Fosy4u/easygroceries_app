@@ -34,6 +34,8 @@ const LayoutContainer = styled(Box)(({ width }) => ({
   marginRight: 0,
 }));
 
+// the main layout for the app
+
 const Layout1 = (props) => {
   const { settings, updateSettings } = useSettings();
   const { layout1Settings } = settings;

@@ -69,8 +69,12 @@ const NavSideBar = () => {
         return sideNavWidth;
     }
   };
+  //convert hex to rgb.
+  //This is used to set the background color of the sidebar
   const primaryRGB = convertHexToRGB(theme.palette.primary.main);
-
+  
+//Navbar is controlled by the settings in React Context API
+  //This function updates the settings
   const updateSidebarMode = (sidebarSettings) => {
     updateSettings({
       layout1Settings: {

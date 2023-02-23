@@ -29,6 +29,7 @@ const ReceiptActions = ({ print, }) => {
   const placedOrder = useSelector(globalSelectors.selectPlacedOrder);
   const receipt = placedOrder?.receipt;
 
+  // print receipt
   const handlePrint = useReactToPrint({
     onBeforeGetContent: () => {},
     content: () => receiptRef.current,
@@ -54,9 +55,6 @@ const ReceiptActions = ({ print, }) => {
       <div>
         <Dialog
           open={showModal}
-          //   onClose={() => {
-          //     setShowModal(false);
-          //   }}
           TransitionComponent={Transition}
           keepMounted
           fullWidth={true}

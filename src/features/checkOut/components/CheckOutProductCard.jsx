@@ -14,11 +14,12 @@ const CheckOutProductCard = ({ item, product, remainingStock }) => {
   const currentUser = useSelector(globalSelectors.selectCurrentUser);
   const dispatch = useDispatch();
   const isRoyaltyMembership = currentUser?.isRoyaltyMembership;
-
+  // apply discount for royalty members
   const price = isRoyaltyMembership
     ? product?.price - (20 / 100) * product?.price.toFixed(2)
     : product?.price.toFixed(2);
 
+  // remove item from cart
   const removeFromCart = () => {
     const payload = {
       productId: product.id,
@@ -26,6 +27,15 @@ const CheckOutProductCard = ({ item, product, remainingStock }) => {
       size: item.size,
       color: item.color,
     };
+
+    const localStorageCart = JSON.parse(localStorage.getItem("cart"));
+    const newCart = localStorageCart.filter(
+      (item) =>
+        item.productId !== product.id &&
+        item.size !== product.size &&
+        item.color !== product.color
+    );
+    localStorage.setItem("cart", JSON.stringify(newCart));
     dispatch(globalActions.removeFromCart(payload));
     dispatch(
       globalActions.addToast({
@@ -34,6 +44,8 @@ const CheckOutProductCard = ({ item, product, remainingStock }) => {
       })
     );
   };
+
+  // update item quantity in cart
 
   const handleQuantityChange = (e) => {
     let quantity;

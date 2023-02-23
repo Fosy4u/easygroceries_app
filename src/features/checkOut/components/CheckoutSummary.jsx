@@ -29,9 +29,12 @@ const CheckoutSummary = ({ products, total }) => {
   const isRoyaltyMembership = currentUser?.isRoyaltyMembership;
   const { cartTotal, originalProductTotal } = total;
 
+    // get the product in the cart
   const getProduct = (id) => {
     return products?.find((product) => product?.id === id);
   };
+
+// calculate the total price of the product on cart
   const getPrice = (id, quantity) => {
     const product = products?.find((product) => product?.id === id);
 

@@ -14,6 +14,7 @@ const Checkout = () => {
   const products = getProductsQuery?.data;
   const [showBanner, setShowBanner] = useState(true);
 
+// calc remaining stock. Backend does this too, but we need it here to show the user
   const calcRemainingStock = (productId) => {
     const product = products?.find((product) => product.id === productId);
     const cartItem = cart?.filter((item) => item.productId === productId);

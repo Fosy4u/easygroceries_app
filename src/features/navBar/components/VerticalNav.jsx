@@ -1,10 +1,9 @@
 import { Box, ButtonBase, Icon, styled } from "@mui/material";
 import useSettings from "../../../hooks/useSettings";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment} from "react";
 import { NavLink } from "react-router-dom";
 import VerticalNavExpansionPanel from "./VerticalNavExpansionPanel";
-import { useSelector } from "react-redux";
-import { globalSelectors } from "../../../global/global.slice";
+
 import { Paragraph, Span } from "../../../utils/components/Typography";
 
 const ListLabel = styled(Paragraph)(({ theme, mode }) => ({

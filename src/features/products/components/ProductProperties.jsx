@@ -20,6 +20,10 @@ const ProductProperties = ({ product }) => {
   const [size, setSize] = useState(product?.sizes[0]);
   const [quantity, setQuantity] = useState(1);
 
+
+// calculate stock quantity
+  // might be better to export this from util helper fuction since it is used in multiple places.
+  // I will leave it here for now due to time constraint
   const getStock = () => {
     const items = cart.filter((item) => item.productId === product.id);
     const totalQuantity = items.reduce(
@@ -29,6 +33,7 @@ const ProductProperties = ({ product }) => {
     return product.stockQuantity - totalQuantity;
   };
 
+  // add item  to cart
   const handleAddToCart = () => {
     const payload = {
       productId: product.id,

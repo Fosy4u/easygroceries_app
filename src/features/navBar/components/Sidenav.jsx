@@ -18,6 +18,8 @@ const SideNavMobile = styled("div")(({ theme }) => ({
 const Sidenav = ({ children }) => {
   const { settings, updateSettings } = useSettings();
 
+  //Navbar is controlled by the settings in React Context API
+  //This function updates the settings
   const updateSidebarMode = (sidebarSettings) => {
     let activeLayoutSettingsName = settings.activeLayout + "Settings";
     let activeLayoutSettings = settings[activeLayoutSettingsName];

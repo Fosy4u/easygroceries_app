@@ -15,7 +15,6 @@ const CheckoutFooter = () => {
   const footerTheme = settings.themes[settings.footer.theme] || theme;
   const currentUser = useSelector(globalSelectors.selectCurrentUser);
   const currentOrder = useSelector(globalSelectors.selectOrder);
-
   const customerId = currentUser?.id;
   const cart = useSelector(globalSelectors.selectCart);
   const [createOrder, createOrderStatus] =
@@ -23,6 +22,8 @@ const CheckoutFooter = () => {
   const [updateOrder, updateOrderStatus] =
     organisationsApi.useUpdateOrderMutation();
 
+
+    //either create or update order
   const handleProceedToCheckout = () => {
     const payload = {
       customerId,
